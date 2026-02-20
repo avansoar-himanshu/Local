@@ -12,11 +12,30 @@ public class SortArrOf_0_1_2 {
     }
 
     private static void dutchNAtionALgo(int[] arr) {
-    int low=0;
-    int mid=0;
-    int high=0;
-//    while ()
+        int low = 0;
+        int mid = 0;
+        int high = arr.length - 1;
+        while (mid <= high) {
+            if (arr[mid] == 1) {
+                mid++;
+            }
+            else if (arr[mid] == 0) {
+                swapNumber(arr, low, mid);
+                mid++;
+                low++;
+            }
+            else if(arr[mid] == 2) {
+                swapNumber(arr, mid, high);
+                high--;
+            }
+        }
 
+    }
+
+    private static void swapNumber(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     private static void solve(int[] arr) {
@@ -37,7 +56,7 @@ public class SortArrOf_0_1_2 {
             arr[i] = 1;
         }
 //        System.out.println(Arrays.toString(arr));
-        for (int i = count0+count1; i < count2 + count0 + count1; i++) {
+        for (int i = count0 + count1; i < count2 + count0 + count1; i++) {
             arr[i] = 2;
         }
     }
